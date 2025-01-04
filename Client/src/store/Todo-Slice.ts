@@ -2,10 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.MODE==='development'? 'http://localhost:3000/api':'/api',
-  withCredentials: true,
+  baseURL: import.meta.env.MODE === 'development' 
+    ? 'http://localhost:3000/api' 
+    : import.meta.env.VITE_API_URL || '/api',  // Use VITE_API_URL for production
+  withCredentials: true, 
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
 });
 

@@ -3,10 +3,12 @@ import axios from 'axios';
 
 // Create axios instance with proper configs
 const api = axios.create({
-  baseURL: import.meta.env.MODE==='development'? 'http://localhost:3000/api':'/api',
+  baseURL: import.meta.env.MODE === 'development' 
+    ? 'http://localhost:3000/api' 
+    : import.meta.env.VITE_API_URL || '/api',  // Use VITE_API_URL for production
   withCredentials: true, 
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
 });
 
