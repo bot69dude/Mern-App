@@ -4,7 +4,7 @@ import axios from 'axios';
 const api = axios.create({
   baseURL: import.meta.env.MODE === 'development' 
     ? 'http://localhost:3000/api' 
-    : import.meta.env.VITE_API_URL || '/api',  // Use VITE_API_URL for production
+    : `${import.meta.env.VITE_API_URL}/api`,  // Append '/api' for production
   withCredentials: true, 
   headers: {
     'Content-Type': 'application/json',

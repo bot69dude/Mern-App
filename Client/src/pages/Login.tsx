@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Loader2 } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -78,6 +79,16 @@ const LoginPage = () => {
               )}
             </Button>
           </form>
+
+          {/* Sign-in link */}
+          <div className="mt-4 text-center">
+            <p className="text-sm">
+              Don't have an account?{" "}
+              <Link to="/Signin" className="text-blue-500 hover:underline">
+                Sign up here
+              </Link>
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>
