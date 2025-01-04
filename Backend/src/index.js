@@ -17,7 +17,7 @@ dotenv.config();
 // Middleware
 app.use(logger);
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:4173"], // Add the new URL
+  origin: ['http://localhost:5173', 'your-netlify-domain.netlify.app'], // Add the new URL
   credentials: true,  // Allow credentials
 }));
 app.use(express.json());
@@ -26,14 +26,6 @@ app.use(cookieParser());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../Client/dist")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../Client", "dist", "index.html"));
-  });
-}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
