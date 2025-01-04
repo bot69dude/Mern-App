@@ -17,7 +17,7 @@ dotenv.config();
 // Middleware
 app.use(logger);
 app.use(cors({
-  origin: ['http://localhost:5173', 'your-netlify-domain.netlify.app'], // Add the new URL
+  origin: ['http://localhost:5173', 'https://rithvik-todo-app.netlify.app'], // Add the new URL
   credentials: true,  // Allow credentials
 }));
 app.use(express.json());
